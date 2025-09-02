@@ -6,9 +6,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="C:\Users\user\Desktop\GitHub\cpp-raytracer\include\vec3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <CustomBuild Include="C:\Users\user\Desktop\GitHub\cpp-raytracer\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{CBEF7CCE-E84A-31E7-9DA4-20CF2173ADB5}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{731FFF4C-AC61-3913-AA02-196796A1BCC7}</UniqueIdentifier>
     </Filter>
