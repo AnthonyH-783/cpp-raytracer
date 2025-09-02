@@ -1,0 +1,10 @@
+^C:\USERS\USER\DESKTOP\GITHUB\CPP-RAYTRACER\BUILD\CMAKEFILES\BF9AC3DB6980B435990BC6476462AA22\GENERATE.STAMP.RULE
+setlocal
+C:\Software\cmake-4.1.1-windows-x86_64\bin\cmake.exe -SC:/Users/user/Desktop/GitHub/cpp-raytracer -BC:/Users/user/Desktop/GitHub/cpp-raytracer/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/user/Desktop/GitHub/cpp-raytracer/build/CppRaytracer.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
