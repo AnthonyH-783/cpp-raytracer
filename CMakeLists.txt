@@ -14,6 +14,8 @@ set ( CMAKE_CXX_EXTENSIONS        OFF )
 set ( SOURCES
     src/main.cpp
     include/vec3.h
+    include/color.h
+    include/ray.h
 
 )
 
