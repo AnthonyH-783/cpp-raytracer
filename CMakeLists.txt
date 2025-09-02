@@ -13,6 +13,7 @@ set ( CMAKE_CXX_EXTENSIONS        OFF )
 # Defining source files
 set ( SOURCES
     src/main.cpp
+    include/vec3.h
 
 )
 
