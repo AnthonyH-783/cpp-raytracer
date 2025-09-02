@@ -210,7 +210,7 @@ CppRaytracer_BINARY_DIR:STATIC=C:/Users/user/Desktop/GitHub/cpp-raytracer/build
 CppRaytracer_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-CppRaytracer_SOURCE_DIR:STATIC=C:/Users/user/Desktop/Github/cpp-raytracer
+CppRaytracer_SOURCE_DIR:STATIC=C:/Users/user/Desktop/GitHub/cpp-raytracer
 
 
 ########################

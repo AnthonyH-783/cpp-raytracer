@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/user/Desktop/Github/cpp-raytracer
+# Install script for directory: C:/Users/user/Desktop/GitHub/cpp-raytracer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
