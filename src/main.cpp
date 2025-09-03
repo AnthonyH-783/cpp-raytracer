@@ -3,9 +3,15 @@
 #include "../include/vec3.h"
 #include "../include/ray.h"
 
-//Stub function for ray_color
+//Function implementing blue-to white gradient
+// Based on ray direction. Formula: (1 - a) * start_value + a * end_value
+// where a is in the range [0,1]
 color ray_color(const ray& r) {
-    return color(0,0,0); // Placeholder that returns black
+    vec3 unit_direction = r.direction();
+    auto a = unit_direction.y() + 1.0;
+    return (1.0 - a) * color(1.0, 1.0, 1.0) + a * color(0.5, 0.7, 1.0);
+
+
 }
 
 int main() {
