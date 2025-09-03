@@ -8,7 +8,7 @@
 // where a is in the range [0,1]
 color ray_color(const ray& r) {
     vec3 unit_direction = r.direction();
-    auto a = unit_direction.y() + 1.0;
+    auto a = 0.5 * (unit_direction.y() + 1.0);
     return (1.0 - a) * color(1.0, 1.0, 1.0) + a * color(0.5, 0.7, 1.0);
 
 
@@ -33,7 +33,7 @@ int main() {
 
     // Calculate the vectors across the horizontal and vertical viewport edges
     auto viewport_u = vec3(viewport_width, 0, 0);
-    auto viewport_v = vec3(0, viewport_height, 0);
+    auto viewport_v = vec3(0, -viewport_height, 0);
 
     // Calculate the vertical and horizontal offsets between pixels
     auto pixel_delta_u = viewport_u / image_width;
