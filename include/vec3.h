@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <iostream>
+#include "custom_math.h"
 /**
  * A 3D vector class for representing points and colors in 3D space.
  * This class includes basic vector operations such as addition, subtraction,
@@ -25,6 +26,7 @@ class vec3 {
     vec3 operator-() const { return vec3(-e[0], -e[1], -e[2]); }
     double operator[](int i) const { return e[i]; }
     double& operator[](int i) { return e[i]; }
+    
 
     // Compound assignment operators
     vec3& operator+=(const vec3& v) {
@@ -67,9 +69,15 @@ class vec3 {
             auto p = vec3::random(-1,1);
             auto lensq = p.length_squared();
             if (1e-160 < lensq && lensq <= 1)
-                return p / sqrt(lensq);
+                return p /= sqrt(lensq);
         }
     }
+
+    inline double dot(const vec3& u, const vec3& v) {
+    return u.e[0] * v.e[0]
+         + u.e[1] * v.e[1]
+         + u.e[2] * v.e[2];
+}
     // Forces random unit vector to fall within same hemisphere as normal
     inline vec3 random_on_hemisphere(const vec3& normal) {
         vec3 on_unit_sphere = random_unit_vector();
@@ -78,6 +86,8 @@ class vec3 {
         else
             return -on_unit_sphere;
     }
+    
+    
 };
 
 // point3 is just an alias for vec3, but useful for geometric clarity in the code.
