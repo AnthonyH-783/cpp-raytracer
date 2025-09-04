@@ -83,7 +83,7 @@ class camera {
         if (world.hit(r, interval(0.001, infinity), rec)) {
             // Scatter the ray in a random direction in the hemisphere around the hit point normal.
             vec3 randomizer = {};
-            vec3 direction = randomizer.random_on_hemisphere(rec.normal);
+            vec3 direction = rec.normal + randomizer.random_on_hemisphere(rec.normal);
               return 0.5 * ray_color(ray(rec.p, direction), depth - 1, world);
         }
 
