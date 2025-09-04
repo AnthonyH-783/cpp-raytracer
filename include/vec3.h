@@ -70,6 +70,14 @@ class vec3 {
                 return p / sqrt(lensq);
         }
     }
+    // Forces random unit vector to fall within same hemisphere as normal
+    inline vec3 random_on_hemisphere(const vec3& normal) {
+        vec3 on_unit_sphere = random_unit_vector();
+        if (dot(on_unit_sphere, normal) > 0.0) // In the same hemisphere as the normal
+            return on_unit_sphere;
+        else
+            return -on_unit_sphere;
+    }
 };
 
 // point3 is just an alias for vec3, but useful for geometric clarity in the code.
