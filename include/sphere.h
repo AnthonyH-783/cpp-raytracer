@@ -7,9 +7,9 @@
 class sphere : public hittable {
   public:
   // Constructor to initialize sphere with center and radius
-    sphere(const point3& center, double radius) : center(center), radius(std::fmax(0,radius)) {
-      // TODO: Initialize the material pointer `mat`.
-    }
+    sphere(const point3& center, double radius, shared_ptr<material> mat)
+      : center(center), radius(std::fmax(0,radius)), mat(mat) {}
+      
     // Override hit function to determine if a ray intersects the sphere
     bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
         vec3 oc = center - r.origin();

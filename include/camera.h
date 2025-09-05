@@ -4,6 +4,7 @@
 #include "vec3.h"
 #include "hittable.h"
 #include "color.h"
+#include "material.h"
 
 
 class camera {
@@ -81,10 +82,11 @@ class camera {
         hit_record rec;
 
         if (world.hit(r, interval(0.001, infinity), rec)) {
-            // Scatter the ray in a random direction in the hemisphere around the hit point normal.
-            vec3 randomizer = {};
-            vec3 direction = rec.normal + randomizer.random_on_hemisphere(rec.normal);
-              return 0.5 * ray_color(ray(rec.p, direction), depth - 1, world);
+            ray scattered;
+            color attenuation;
+            if (rec.mat->scatter(r, rec, attenuation, scattered))
+                return attenuation * ray_color(scattered, depth - 1, world);
+            return color(0,0,0);
         }
 
 
