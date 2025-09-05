@@ -64,7 +64,7 @@ class vec3 {
     }
 
     // Random Unit Vector in Unit Sphere
-    inline vec3 random_unit_vector() {
+    static inline vec3 random_unit_vector() {
         while (true) {
             auto p = vec3::random(-1,1);
             auto lensq = p.length_squared();
@@ -85,6 +85,11 @@ class vec3 {
             return on_unit_sphere;
         else
             return -on_unit_sphere;
+    }
+    bool near_zero() const {
+        // Return true if the vector is close to zero in all dimensions.
+        auto s = 1e-8; // Threshold value
+        return (std::fabs(e[0]) < s) && (std::fabs(e[1]) < s) && (std::fabs(e[2]) < s);
     }
     
     
