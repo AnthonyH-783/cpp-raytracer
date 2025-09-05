@@ -38,18 +38,21 @@ class lambertian : public material {
 
 class metal : public material {
   public:
-    metal(const color& albedo) : albedo(albedo) {}
+  // Constructor to initialize metal material with albedo and fuzziness
+    metal(const color& albedo, double fuzz) : albedo(albedo), fuzz(fuzz < 1 ? fuzz : 1) {};
 
     bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered)
     const override {
         vec3 reflected = reflect(r_in.direction(), rec.normal);
+        reflected = unit_vector(reflected) + (fuzz * vec3::random_unit_vector());
         scattered = ray(rec.p, reflected);
         attenuation = albedo;
-        return true;
+        return (dot(scattered.direction(), rec.normal) > 0);
     }
 
   private:
-    color albedo;
+    color albedo; // Reflective color
+    double fuzz; // Fuzziness factor (0 = perfect mirror, 1 = very fuzzy)
 };
 
 #endif
