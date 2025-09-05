@@ -3,6 +3,7 @@
 
 #include "ray.h"
 #include "interval.h"
+using std::shared_ptr;
 
 class material; // Forward declaration
 class hit_record {
