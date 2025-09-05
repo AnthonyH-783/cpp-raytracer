@@ -4,6 +4,24 @@
 #include <cmath>
 #include <iostream>
 #include "custom_math.h"
+
+// Forward Declarations
+class vec3;
+
+
+// Forward declarations of operators and helpers
+inline vec3 operator+(const vec3& u, const vec3& v);
+inline vec3 operator-(const vec3& u, const vec3& v);
+inline vec3 operator*(const vec3& u, const vec3& v);
+inline vec3 operator*(double t, const vec3& v);
+inline vec3 operator*(const vec3& v, double t);
+inline vec3 operator/(const vec3& v, double t);
+
+inline double dot(const vec3& u, const vec3& v);
+inline vec3 cross(const vec3& u, const vec3& v);
+
+inline vec3 unit_vector(const vec3& v);
+inline vec3 reflect(const vec3& v, const vec3& n);
 /**
  * A 3D vector class for representing points and colors in 3D space.
  * This class includes basic vector operations such as addition, subtraction,
@@ -72,12 +90,15 @@ class vec3 {
                 return p /= sqrt(lensq);
         }
     }
+   
 
-    inline double dot(const vec3& u, const vec3& v) {
-    return u.e[0] * v.e[0]
-         + u.e[1] * v.e[1]
-         + u.e[2] * v.e[2];
-}
+
+
+    //static inline double dot(const vec3& u, const vec3& v) {
+       // return u.e[0] * v.e[0]
+          //  + u.e[1] * v.e[1]
+           // + u.e[2] * v.e[2];
+   // }
     // Forces random unit vector to fall within same hemisphere as normal
     inline vec3 random_on_hemisphere(const vec3& normal) {
         vec3 on_unit_sphere = random_unit_vector();
@@ -91,6 +112,8 @@ class vec3 {
         auto s = 1e-8; // Threshold value
         return (std::fabs(e[0]) < s) && (std::fabs(e[1]) < s) && (std::fabs(e[2]) < s);
     }
+
+
     
     
 };
@@ -143,6 +166,9 @@ inline vec3 cross(const vec3& u, const vec3& v) {
 
 inline vec3 unit_vector(const vec3& v) {
     return v / v.length();
+}
+inline vec3 reflect(const vec3& v, const vec3& n) {
+    return v - 2*dot(v,n)*n;
 }
 
 #endif
